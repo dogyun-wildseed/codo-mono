@@ -1,6 +1,5 @@
 import React from "react";
 import { CircularProgress, IconButton as MuiIconButton } from "@mui/material";
-import { useLoadingButtonStyle } from "./useLoadingButtonStyles";
 
 interface IconButtonProps {
   className?: string;
@@ -25,7 +24,6 @@ const IconButton: React.FC<IconButtonProps> = ({
   disableRipple = false,
   ...rest
 }) => {
-  const loadingClasses = useLoadingButtonStyle();
   return (
     <MuiIconButton
       className={className}
@@ -36,7 +34,7 @@ const IconButton: React.FC<IconButtonProps> = ({
       disableRipple={disableRipple}
     >
       {isLoading && (
-        <div className={loadingClasses.loadingIconOverlay}>
+        <div>
           <CircularProgress size={25} />
         </div>
       )}
