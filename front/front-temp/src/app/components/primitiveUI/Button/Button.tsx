@@ -1,6 +1,5 @@
 import React from "react";
 import MuiButton from "@mui/material/Button";
-import clsx from "clsx";
 import { CircularProgress } from "@mui/material";
 
 export interface ButtonProps {
