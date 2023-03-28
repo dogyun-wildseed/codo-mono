@@ -1,0 +1,40 @@
+version: "3.8"
+services:
+  codo-mongodb:
+    image: "mongo"
+    ports:
+      - "26017:27017"
+    restart: "always"
+
+    volumes:
+      - type: volume
+        source: codo
+        target: /codo/mongodb
+
+  co-share-mongodb:
+    image: "mongo"
+    ports:
+      - "28017:27017"
+    restart: "always"
+    volumes:
+      - type: volume
+        source: co-share
+        target: /co-share/mongodb
+        volume:
+          nocopy: true
+
+  # co-share-web-front:
+  #   container_name: "co-share-web-front"
+  #   build:
+  #     context: ../../front/web-client
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "3401:3000"
+  #   volumes:
+  #     - type: volume
+  #       source: co-share
+  #       target: /co-sahre/web-client
+volumes:
+  db-data:
+  co-share:
+  codo:
